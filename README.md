@@ -2,6 +2,7 @@
 
 ## 简介:
 此项目由Java8、SpringBoot、Mybatis、Mybatis-plus、Mysql、Lambok、Shiro搭建而成的后端框架
+前端代码参阅[这里](https://github.com/jacksparrow414/Vue)
 
 ## 项目结构:
 ### 目前结构如下：
