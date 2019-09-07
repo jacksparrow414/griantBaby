@@ -3,6 +3,7 @@ package com.graint.baby.code.task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
@@ -22,7 +23,7 @@ import java.util.Date;
  * 具体可以参考{@see <a href =https://blog.csdn.net/qq_27721169/article/details/88029436>Spring定时任务</a>}
  */
 @Component
-//@EnableScheduling
+@EnableScheduling
 @EnableAsync
 public class MyTask {
 
