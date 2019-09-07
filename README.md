@@ -1,10 +1,10 @@
 # griantBaby
 
-# # 简介:
+## 简介:
 此项目由Java8、SpringBoot、Mybatis、Mybatis-plus、Mysql、Lambok、Shiro搭建而成的后端框架
 
-# # 项目结构:
-# # # 目前结构如下：
+## 项目结构:
+### 目前结构如下：
 - |——code                                                *项目顶级目录*
   - |——sql                                              *项目所有的表结构 SQL都放在这里*
   - |——src
@@ -29,10 +29,10 @@
        - |——..*Test                                    *所有*Test测试用例在这里*
     - |——pom.xml                                       *项目的pom文件*
 
-# # 简要说明：
+## 简要说明：
 1. 所有表和基础POJO类都由项目中的**MysqlGenerator**生成，减少工作量，可快速进行开发。
 2. 计划所有业务的操作都用**Mybatis-plus**书写，除必要情况，采取手写SQL。
 3. 目前本项目已经所有已实现的接口都会有**shiro鉴权**操作，并且集成了jwt(token),保证接口的基本安全。
 4. 由于定时任务和消息队列还没有密集使用，代码里涉及到定时任务和消息队列的代码为*demo*。
-# # 建议：
+## 建议：
 1. 建议所有接口验证使用[Yapi](http://yapi.demo.qunar.com/)或者PostMan进行验证
