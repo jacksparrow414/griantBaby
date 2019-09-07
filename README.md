@@ -36,3 +36,5 @@
 4. 由于定时任务和消息队列还没有密集使用，代码里涉及到定时任务和消息队列的代码为*demo*。
 ## 建议：
 1. 建议所有接口验证使用[Yapi](http://yapi.demo.qunar.com/)或者PostMan进行验证
+2. Yapi高级操作可参阅[这里](https://www.bookstack.cn/read/YApi-zh/README.md)
+2. shiro文档如果看不懂，可参阅[这里](https://blog.csdn.net/dghkgjlh/article/details/88725508)
