@@ -16,6 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
+ * @author jacksparrow414
  * shiro配置类
  */
 @Configuration
