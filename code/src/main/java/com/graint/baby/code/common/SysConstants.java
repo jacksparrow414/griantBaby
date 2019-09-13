@@ -7,4 +7,6 @@ package com.graint.baby.code.common;
  * @Description: TODO
  */
 public class SysConstants {
+    public static final Integer COMMON_ONE = 1;
+    public static final Integer COMMON_ZERO = 0;
 }

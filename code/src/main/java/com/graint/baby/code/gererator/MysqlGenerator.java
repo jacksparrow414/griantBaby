@@ -1,7 +1,6 @@
 package com.graint.baby.code.gererator;
 
 
-
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
@@ -69,7 +68,7 @@ public class MysqlGenerator {
         // 还没找到解决方法
         gc.setBaseResultMap(true);
 
-        gc.setIdType(IdType.AUTO);
+        gc.setIdType(IdType.ID_WORKER);
         mpg.setGlobalConfig(gc);
 
         // 数据源配置

@@ -20,7 +20,9 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,7 +34,7 @@ import java.util.Map;
  * @since 2019-09-07
  */
 @RestController
-@RequestMapping("/user/sys-user-entity")
+@RequestMapping("/user")
 public class SysUserController {
 
     @Autowired
@@ -82,5 +84,53 @@ public class SysUserController {
         SysUserEntity addUser = JSON.parseObject(user,SysUserEntity.class);
         service.saveUser(addUser);
 
+    }
+
+    /**
+     * 这里其实菜单管理,目前先用假的,以后开发完菜单,换成真的
+     * @param token
+     * @return
+     */
+    @GetMapping("info")
+    public Map<String,Object> info(String token){
+
+        JSONObject child1 = new JSONObject();
+        child1.put("path","dynamic-table");
+        child1.put("name","DynamicTable");
+        child1.put("title","dynamicTable");
+        child1.put("component","table/dynamic-table/index");
+        JSONObject child2 = new JSONObject();
+        child2.put("path","drag-table");
+        child2.put("name","DragTable");
+        child2.put("title","dragTable");
+        child2.put("component","table/drag-table");
+        JSONObject child3 = new JSONObject();
+        child3.put("path","inline-edit-table");
+        child3.put("name","InlineEditTable");
+        child3.put("title","inlineEditTable");
+        child3.put("component","table/inline-edit-table");
+        JSONObject child4 = new JSONObject();
+        child4.put("path","complex-table");
+        child4.put("name","ComplexTable");
+        child4.put("title","complexTable");
+        child4.put("component","table/complex-table");
+        JSONObject jsonObject = new JSONObject();
+//        jsonObject.put("roles",array);
+//        jsonObject.put("introduction","I am a super administrator");
+//        jsonObject.put("avatar","https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
+//        jsonObject.put("name","Super Admin");
+        jsonObject.put("path","/table");
+        jsonObject.put("name","Table");
+        jsonObject.put("title","Table");
+        jsonObject.put("icon","table");
+        jsonObject.put("component","Layout");
+        Object[] array = {child1,child2,child3,child4};
+        jsonObject.put("children",array);
+        List<Map<String,Object>> list = new ArrayList<>();
+        list.add(jsonObject);
+
+        Map<String,Object> map = new HashMap<>();
+        map.put("data",list);
+        return map;
     }
 }
