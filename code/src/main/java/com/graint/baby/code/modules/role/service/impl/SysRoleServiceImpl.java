@@ -30,7 +30,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRoleEntity
         if (SysConstants.COMMON_ONE.equals(saveRoleVo.getOperationType()) && ObjectUtils.isNotNull(saveRoleVo.getRoleId())){
            sysRoleEntity = this.getById(saveRoleVo.getRoleId());
            if (ObjectUtils.isNull(sysRoleEntity)){
-               return "不存在的数据，非法！";
+               return SysConstants.NO_EXIST_DATA;
            }
            BeanUtils.copyProperties(saveRoleVo,sysRoleEntity);
         }
@@ -38,6 +38,6 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRoleEntity
         if (result){
             return "";
         }
-        return "保存失败";
+        return SysConstants.SAVE_FAILURE;
     }
 }

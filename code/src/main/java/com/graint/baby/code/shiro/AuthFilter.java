@@ -23,7 +23,11 @@ import javax.servlet.http.HttpServletRequest;
  * 所以接下来的每个请求就不会去请求onAccessDenied,具体可以点下面的代码看下源码即可
  * PS:目前返回给客户端的token是没有加过期时间验证的,不太好,因为SHA256没有解密算法,可以
  * 使用Base64来加密解密,这样就满足要求了。目前还没有切换成64。
+ *
  * 2019-05-25更新:使用JWT token来完善目前已有的逻辑，包括代码的改写(老代码截图放在了 截图 文件夹里)
+ *
+ * 2019-09-14更新:使用全局异常处理类,无法捕获Filter中抛出的异常,
+ * 具体原因见文章{@see <a href=https://blog.csdn.net/loophome/article/details/94723723></a>}
  */
 @Component("authFilter")
 public class AuthFilter extends FormAuthenticationFilter {
@@ -70,6 +74,8 @@ public class AuthFilter extends FormAuthenticationFilter {
             if (isLoginSubmission(request, response)) {
                 return true;
             }
+        }else {
+            throw new CustomException("token不存在,非法请求",HttpStatus.SC_UNAUTHORIZED);
         }
         return false;
     }
