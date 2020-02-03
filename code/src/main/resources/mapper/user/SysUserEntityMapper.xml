@@ -3,4 +3,9 @@
 <mapper namespace="com.graint.baby.code.modules.user.dao.SysUserMapper">
 
 
+    <insert id="addUser">
+        insert into sys_user (id, user_name, age, email, password, test, salt)
+        values (#{user.id}, #{user.userName},
+                #{user.age}, #{user.email}, #{user.password}, #{user.test},#{user.salt})
+    </insert>
 </mapper>

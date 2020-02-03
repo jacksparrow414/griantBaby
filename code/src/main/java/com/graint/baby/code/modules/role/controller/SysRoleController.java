@@ -1,16 +1,14 @@
 package com.graint.baby.code.modules.role.controller;
 
 
+import com.graint.baby.code.common.SysConstants;
 import com.graint.baby.code.modules.role.service.SysRoleService;
 import com.graint.baby.code.modules.role.vo.SaveRoleVo;
 import com.graint.baby.code.utils.CustomData;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -35,6 +33,15 @@ public class SysRoleController {
         String result = sysRoleService.saveRole(saveRoleVo);
         return Optional.ofNullable(result).filter(u->StringUtils.isBlank(result))
                 .map(u->CustomData.ok()).orElse(CustomData.error(result));
+    }
+
+    @GetMapping(value = "removeRole")
+    public CustomData removeRole(@RequestParam Long id){
+       boolean result = this.sysRoleService.removeById(id);
+       if (result){
+           return CustomData.ok(SysConstants.DELETE_SUCCESS);
+       }
+       return CustomData.error(SysConstants.DELETE_FAILURE);
     }
 
 }

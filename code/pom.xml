@@ -21,7 +21,7 @@
         <mybatis.plus.generator.version>3.1.0</mybatis.plus.generator.version>
         <freemarker.version>2.3.28</freemarker.version>
         <fastjson.version>1.2.56</fastjson.version>
-        <mysql.version>5.1.31</mysql.version>
+        <mysql.version>8.0.18</mysql.version>
         <shiro.version>1.4.0</shiro.version>
         <commons.lang.version>2.6</commons.lang.version>
         <commons.fileupload.version>1.2.2</commons.fileupload.version>
@@ -32,6 +32,7 @@
         <jwt.version>0.9.1</jwt.version>
         <httpcore.version>4.4.11</httpcore.version>
         <kaptcha.version>0.0.9</kaptcha.version>
+        <dynamic-datasource.version>2.5.7</dynamic-datasource.version>
     </properties>
 
     <dependencies>
@@ -50,6 +51,7 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.0.1</version>
         </dependency>
         <!--rabbitMQ-->
         <dependency>
@@ -96,6 +98,13 @@
             <artifactId>mybatis-plus-generator</artifactId>
             <version>${mybatis.plus.generator.version}</version>
         </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>com.baomidou</groupId>-->
+            <!--<artifactId>dynamic-datasource-spring-boot-starter</artifactId>-->
+            <!--<version>${dynamic-datasource.version}</version>-->
+        <!--</dependency>-->
+
 
         <dependency>
             <groupId>org.freemarker</groupId>

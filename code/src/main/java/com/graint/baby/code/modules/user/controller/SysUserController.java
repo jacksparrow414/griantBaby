@@ -4,6 +4,7 @@ package com.graint.baby.code.modules.user.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.code.kaptcha.Producer;
+import com.graint.baby.code.modules.user.dao.SysUserMapper;
 import com.graint.baby.code.modules.user.entity.SysUserEntity;
 import com.graint.baby.code.modules.user.service.SysUserService;
 import com.graint.baby.code.utils.JwtUtil;
@@ -41,6 +42,8 @@ public class SysUserController {
     Producer producer;
     @Autowired
     SysUserService service;
+    @Autowired
+    private SysUserMapper userMapper;
 
     @Autowired
     JwtUtil jwtUtil;
@@ -132,5 +135,17 @@ public class SysUserController {
         Map<String,Object> map = new HashMap<>();
         map.put("data",list);
         return map;
+    }
+
+    @RequestMapping(value = "testMybatis")
+    public void testMybatis(){
+        SysUserEntity sysUserEntity = new SysUserEntity();
+        sysUserEntity.setAge("89");
+        sysUserEntity.setEmail("qq");
+        sysUserEntity.setPassword("123");
+        sysUserEntity.setUserName("dhb88");
+        sysUserEntity.setSalt("io");
+        sysUserEntity.setTest(1);
+        userMapper.addUser(sysUserEntity);
     }
 }

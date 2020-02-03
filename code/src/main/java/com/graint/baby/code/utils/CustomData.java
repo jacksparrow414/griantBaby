@@ -13,8 +13,9 @@ import java.util.Map;
  * @Description: TODO
  */
 @Component
-public class CustomData extends HashMap<String,Object> {
+public class CustomData<T> extends HashMap<String,Object> {
     private static final long serialVersionUID = 1L;
+    private T data;
 
     public CustomData() {
         put("code", 0);
@@ -50,6 +51,18 @@ public class CustomData extends HashMap<String,Object> {
 
     public static CustomData ok() {
         return new CustomData();
+    }
+
+//    public  CustomData ok(T data){
+//        CustomData.data = data;
+//    };
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 
     @Override
