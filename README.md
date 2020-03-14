@@ -8,8 +8,8 @@
 ### 目前结构如下：
 - |——code                                                *项目顶级目录*
   - |——sql                                              *项目所有的表结构 SQL都放在这里*
-  - |——nginx                                            *nginx配置示例文件nginx.conf
-  - |——vue/dist                                         *前端打好的包,如果不想看前端代码，直接用这个包即可
+  - |——nginx                                            *nginx配置示例文件nginx.conf*
+  - |——vue/dist                                         *前端打好的包,如果不想看前端代码，直接用这个包即可*
   - |——src
      - |——main
          - |——java
