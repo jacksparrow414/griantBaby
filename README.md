@@ -1,4 +1,7 @@
-# griantBaby
+# griantBaby(手把手教巨婴)
+
+## 开源许可证 
+MIT
 
 ## 简介:
 此项目由Java8、SpringBoot、Mybatis、Mybatis-plus、Mysql、Lambok、Shiro搭建而成的后端框架
