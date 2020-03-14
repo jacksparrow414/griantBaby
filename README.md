@@ -8,6 +8,8 @@
 ### 目前结构如下：
 - |——code                                                *项目顶级目录*
   - |——sql                                              *项目所有的表结构 SQL都放在这里*
+  - |——nginx                                            *nginx配置示例文件nginx.conf
+  - |——vue/dist                                         *前端打好的包,如果不想看前端代码，直接用这个包即可
   - |——src
      - |——main
          - |——java
@@ -36,6 +38,15 @@
 3. 目前本项目已经所有已实现的接口都会有**shiro鉴权**操作，并且集成了jwt(token),保证接口的基本安全。
 4. 由于定时任务和消息队列还没有密集使用，代码里涉及到定时任务和消息队列的代码为*demo*。
 ## 建议：
-1. 建议所有接口验证使用[Yapi](http://yapi.demo.qunar.com/)或者PostMan进行验证
+1. 建议所有接口验证使用[Yapi](http://yapi.demo.qunar.com/)或者PostMan进行接口验证
 2. Yapi高级操作可参阅[这里](https://www.bookstack.cn/read/YApi-zh/README.md)
-2. shiro文档如果看不懂，可参阅[这里](https://blog.csdn.net/dghkgjlh/article/details/88725508)的系列文章
+3. shiro文档如果看不懂，可参阅[这里](https://blog.csdn.net/dghkgjlh/article/details/88725508)的系列文章
+## 部署
+1.本地安装好nginx，将项目的nginx文件夹下的nginx.conf替换默认的nginx.conf
+2.将项目vue下的dist文件夹放在自定义的位置上，如D盘
+3.修改第1步中的nginx.conf下的 /baby下的root，路径替换为第2步中保存的位置
+4.验证nginx.conf的正确性并启动，访问本地80端口,查看是否显示出项目的首页
+5.本地建立名字为baby的MySQL数据库，并运行sql文件夹下的sql文件
+6.修改appincation-dev.yml中的数据库项中的用户名、密码切换成自己的
+7.启动后端项目
+8.从首页的位置点击登录按钮，即可进入系统
