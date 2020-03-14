@@ -57,3 +57,8 @@ dhb:
     # token有效时长，7天，单位秒
     expire: 604800
     header: token
+#logging:
+#  config: classpath:logback/logback-spring-${spring.profiles.active}.xml
+#  level: debug
+#  file:
+#    max-history: 10

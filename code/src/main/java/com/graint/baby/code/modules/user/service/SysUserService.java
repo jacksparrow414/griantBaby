@@ -13,5 +13,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface SysUserService extends IService<SysUserEntity> {
 
-    void saveUser(SysUserEntity addUser);
+    /**
+     * 添加用户
+     * @param addUser 用户实体
+     * @return 用户ID
+     */
+    Long saveUser(SysUserEntity addUser);
 }

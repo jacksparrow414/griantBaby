@@ -2,6 +2,8 @@ package com.graint.baby.code.shiro;
 
 import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
 import com.graint.baby.code.exception.CustomException;
+import com.graint.baby.code.modules.user.entity.SysUserEntity;
+import com.graint.baby.code.modules.user.service.SysUserService;
 import com.graint.baby.code.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
 import org.apache.commons.lang.StringUtils;
@@ -34,6 +36,8 @@ public class AuthFilter extends FormAuthenticationFilter {
 
     @Autowired
     private JwtUtil jwtUtil;
+    @Autowired
+    private SysUserService sysUserService;
 
     /**
      * 判断token是否为空、过期
@@ -55,6 +59,11 @@ public class AuthFilter extends FormAuthenticationFilter {
             Claims claims = jwtUtil.parseToken(token);
             if (ObjectUtils.isNull(claims) || jwtUtil.isTokenExpired(claims.getExpiration())) {
                 throw new CustomException(jwtUtil.getHeader()+"token过期",HttpStatus.SC_UNAUTHORIZED);
+            }
+            String userId = claims.getSubject();
+            SysUserEntity userEntity = sysUserService.getById(Long.valueOf(userId));
+            if (ObjectUtils.isNull(userEntity)){
+                throw new CustomException("无此用户",HttpStatus.SC_UNAUTHORIZED);
             }
         return true;
     }

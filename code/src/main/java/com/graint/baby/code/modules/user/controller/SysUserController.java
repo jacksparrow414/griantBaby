@@ -3,7 +3,10 @@ package com.graint.baby.code.modules.user.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.google.code.kaptcha.Producer;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.graint.baby.code.modules.user.dao.SysUserMapper;
 import com.graint.baby.code.modules.user.entity.SysUserEntity;
 import com.graint.baby.code.modules.user.service.SysUserService;
@@ -21,10 +24,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <p>
@@ -60,6 +60,11 @@ public class SysUserController {
         IOUtils.closeQuietly(outputStream);
     }
 
+    /**
+     * 只返回token,利用token再请求getInfo接口获取用户信息
+     * @param info 用户登录信息
+     * @return token
+     */
     @PostMapping(value = "login",consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public Map login(String info){
         SysUserEntity user = JSON.parseObject(info,SysUserEntity.class);
@@ -70,7 +75,8 @@ public class SysUserController {
         try{
             subject.login(token);
             //返回的token
-            String tokenBack = jwtUtil.generateToken(5L);
+            SysUserEntity userEntity = (SysUserEntity) SecurityUtils.getSubject().getPrincipal();
+            String tokenBack = jwtUtil.generateToken(userEntity.getId());
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("token",tokenBack);
             map.put("data",jsonObject);
@@ -83,20 +89,21 @@ public class SysUserController {
     }
 
     @PostMapping("insert")
-    public void insert(@RequestBody String user){
+    public Long insert(@RequestBody String user){
         SysUserEntity addUser = JSON.parseObject(user,SysUserEntity.class);
-        service.saveUser(addUser);
+        addUser.setId(IdWorker.getId());
+        return service.saveUser(addUser);
 
     }
 
     /**
-     * 这里其实菜单管理,目前先用假的,以后开发完菜单,换成真的
-     * @param token
-     * @return
+     * 这里其实菜单管理,用户角色,目前先用假的,以后开发完菜单,换成真的
+     * @param token token
+     * @return 要展示的菜单
      */
     @GetMapping("info")
     public Map<String,Object> info(String token){
-
+        // 要展示哪些组件
         JSONObject child1 = new JSONObject();
         child1.put("path","dynamic-table");
         child1.put("name","DynamicTable");
@@ -117,11 +124,8 @@ public class SysUserController {
         child4.put("name","ComplexTable");
         child4.put("title","complexTable");
         child4.put("component","table/complex-table");
+
         JSONObject jsonObject = new JSONObject();
-//        jsonObject.put("roles",array);
-//        jsonObject.put("introduction","I am a super administrator");
-//        jsonObject.put("avatar","https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
-//        jsonObject.put("name","Super Admin");
         jsonObject.put("path","/table");
         jsonObject.put("name","Table");
         jsonObject.put("title","Table");
@@ -132,6 +136,7 @@ public class SysUserController {
         List<Map<String,Object>> list = new ArrayList<>();
         list.add(jsonObject);
 
+
         Map<String,Object> map = new HashMap<>();
         map.put("data",list);
         return map;
@@ -140,12 +145,36 @@ public class SysUserController {
     @RequestMapping(value = "testMybatis")
     public void testMybatis(){
         SysUserEntity sysUserEntity = new SysUserEntity();
-        sysUserEntity.setAge("89");
+        sysUserEntity.setAge(89);
         sysUserEntity.setEmail("qq");
         sysUserEntity.setPassword("123");
         sysUserEntity.setUserName("dhb88");
         sysUserEntity.setSalt("io");
-        sysUserEntity.setTest(1);
         userMapper.addUser(sysUserEntity);
+    }
+    @RequestMapping(value = "logout")
+    public void logout(){
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+    }
+
+    /**
+     * 用户信息
+     * @return 用户信息
+     */
+    @PostMapping(value = "userInfo")
+    public Map<String,Object> userInfo(){
+        // 用户信息 暂时写死,以后从数据库查询
+        JSONObject userInfo = new JSONObject();
+        List<String> roles = Lists.newArrayList();
+        roles.add("admin");
+        String[] rolesArray = roles.toArray(new String[roles.size()]);
+        userInfo.put("roles",roles);
+        userInfo.put("introduction","I am a super administrator");
+        userInfo.put("avatar","https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
+        userInfo.put("name","Super Admin");
+        Map<String,Object> map = Maps.newHashMap();
+        map.put("data",userInfo);
+        return map;
     }
 }

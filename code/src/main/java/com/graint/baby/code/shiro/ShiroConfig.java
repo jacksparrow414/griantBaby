@@ -1,5 +1,6 @@
 package com.graint.baby.code.shiro;
 
+import com.graint.baby.code.sysenum.ShiroEnum;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
@@ -44,8 +45,8 @@ public class ShiroConfig {
     @Bean("credentialsMatcher")
     public HashedCredentialsMatcher credentialsMatcher(){
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
-        hashedCredentialsMatcher.setHashAlgorithmName("SHA-256");
-        hashedCredentialsMatcher.setHashIterations(20);
+        hashedCredentialsMatcher.setHashAlgorithmName(ShiroEnum.HASH_ALGORITHMNAME.getName());
+        hashedCredentialsMatcher.setHashIterations(ShiroEnum.HASH_ITERATIONS.getCode());
         hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);
         return hashedCredentialsMatcher;
     }
