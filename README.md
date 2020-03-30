@@ -45,11 +45,11 @@ MIT
 2. Yapi高级操作可参阅[这里](https://www.bookstack.cn/read/YApi-zh/README.md)
 3. shiro文档如果看不懂，可参阅[这里](https://blog.csdn.net/dghkgjlh/article/details/88725508)的系列文章
 ## 部署
-1.本地安装好nginx，将项目的nginx文件夹下的nginx.conf替换默认的nginx.conf
-2.将项目vue下的dist文件夹放在自定义的位置上，如D盘
-3.修改第1步中的nginx.conf下的 /baby下的root，路径替换为第2步中保存的位置
-4.验证nginx.conf的正确性并启动，访问本地80端口,查看是否显示出项目的首页
-5.本地建立名字为baby的MySQL数据库，并运行sql文件夹下的sql文件
-6.修改appincation-dev.yml中的数据库项中的用户名、密码切换成自己的
-7.启动后端项目
-8.从首页的位置点击登录按钮，即可进入系统
+1. 本地安装好nginx，将项目的nginx文件夹下的nginx.conf替换默认的nginx.conf
+2. 将项目vue下的dist文件夹放在自定义的位置上，如D盘
+3. 修改第1步中的nginx.conf下的 /baby下的root，路径替换为第2步中保存的位置
+4. 验证nginx.conf的正确性并启动，访问本地80端口,查看是否显示出项目的首页
+5. 本地建立名字为baby的MySQL数据库，并运行sql文件夹下的sql文件
+6. 修改appincation-dev.yml中的数据库项中的用户名、密码切换成自己的
+7. 启动后端项目
+8. 从首页的位置点击登录按钮，即可进入系统
