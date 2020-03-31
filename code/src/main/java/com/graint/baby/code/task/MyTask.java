@@ -1,9 +1,7 @@
 package com.graint.baby.code.task;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,9 +22,8 @@ import java.util.Date;
 //@EnableAsync
 public class MyTask {
 
-//    @Autowired 是按照类型装配，@Resource是按照名称装配，Autowired可以再加一个注解@Qualifier注解再指定名字可以达到和Resource一样的效果
-    @Autowired
-    ThreadPoolTaskExecutor threadPoolTaskExecutor;
+
+
 
     @Scheduled(fixedRate = 5000)
     @Async
