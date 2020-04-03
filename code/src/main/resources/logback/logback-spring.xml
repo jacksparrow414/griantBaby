@@ -109,7 +109,7 @@
 
     <!--开发-->
     <springProfile name="dev">
-        <root level="debug">
+        <root level="info">
             <appender-ref ref="console" />
             <appender-ref ref="rollingFileInfo" />
             <appender-ref ref="rollingFileWarn" />
