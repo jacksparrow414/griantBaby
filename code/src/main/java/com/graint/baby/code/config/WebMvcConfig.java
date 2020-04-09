@@ -1,9 +1,14 @@
 package com.graint.baby.code.config;
 
 import com.graint.baby.code.CodeApplication;
+import com.graint.baby.code.common.SysConstants;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.List;
 
 /**
  * @Author jacksparrow414
@@ -16,13 +21,27 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * 可以直接在启动类上配置CorsFilter{@link CodeApplication#corsFilter()}
  * 相关文章可以参考{@see <a href=https://www.codercto.com/a/55519.html></a>}
  */
+@EnableWebMvc
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
+
+
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedHeaders("*").allowedMethods("*")
                 .allowCredentials(true).allowedOrigins("*")
                 .maxAge(3600);
+    }
+
+    /**
+     * 加入自定义的fastjson配置,并把它放到converters中的第一个
+     * @author duhongbo
+     * @param converters 转换器
+     * @return void
+     */
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(SysConstants.COMMON_ZERO,CustomFastJsonConfig.getFastJsonHttpMessageConverter());
     }
 }
