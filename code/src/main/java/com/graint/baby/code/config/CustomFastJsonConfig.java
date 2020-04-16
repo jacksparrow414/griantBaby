@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author duhongbo
+ * @author jacksparrow414
  * @date 2020/4/9 14:48
  */
 public class CustomFastJsonConfig {

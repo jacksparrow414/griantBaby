@@ -36,7 +36,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     /**
      * 加入自定义的fastjson配置,并把它放到converters中的第一个
-     * @author duhongbo
+     * @author jacksparrow414
      * @param converters 转换器
      * @return void
      */
