@@ -1,7 +1,6 @@
 # griantBaby(手把手教巨婴)
 
-## 开源许可证 
-MIT
+![](https://badgen.net/badge/License/MIT/blue)![](https://badgen.net/badge/Maven/3.0+/green)![](https://badgen.net/badge/JDK/1.8+/orange)![](https://badgen.net/badge/SpringBoot/2.0+/pink)![](https://badgen.net/badge/Mysql/5.7+/purple)[![](https://badgen.net/badge/Mybatis-plus/3.0+/green)](https://mp.baomidou.com/)![](https://badgen.net/badge/author/jacksparrow414,Canon4G/cyan?list=|)
 
 ## 简介:
 此项目由Java8、SpringBoot、Mybatis、Mybatis-plus、Mysql、Lambok、Shiro搭建而成的后端框架
