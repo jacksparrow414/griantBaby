@@ -1,4 +1,4 @@
-# griantBaby(手把手教巨婴)
+# griantBaby(手把手教巨婴开发完整的前后端分离项目)
 
 ![](https://badgen.net/badge/License/MIT/blue) ![](https://badgen.net/badge/Maven/3.0+/green) ![](https://badgen.net/badge/JDK/1.8+/orange) ![](https://badgen.net/badge/SpringBoot/2.0+/pink) ![](https://badgen.net/badge/Mysql/5.7+/purple) ![](https://badgen.net/badge/Shiro/1.5/yellow) [![](https://badgen.net/badge/Mybatis-plus/3.0+/green)](https://mp.baomidou.com/) ![](https://badgen.net/badge/author/jacksparrow414,Canon4G/cyan?list=|)
 
