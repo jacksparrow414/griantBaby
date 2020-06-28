@@ -51,5 +51,8 @@
 6. 修改appincation-dev.yml中的数据库项中的用户名、密码切换成自己的
 7. 启动后端项目
 8. 从首页的位置点击登录按钮，即可进入系统
+## 参与贡献
+一起参与开源，十分期待你的加入!!!
+[如何参与开源?](https://blog.csdn.net/dghkgjlh/article/details/106955241)
 ## 特别感谢
 [![JetBrains对本项目的支持](https://github.com/jacksparrow414/griantBaby/blob/master/logo-text.png)]( https://www.jetbrains.com/?from=https://github.com/jacksparrow414/griantBaby)
