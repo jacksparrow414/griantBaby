@@ -48,7 +48,12 @@ mybatis-plus:
     cache-enabled: false
     call-setters-on-nulls: true
     jdbc-type-for-null: 'null'
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 关于mybatis的日志配置，参考官方文档<a href="https://mybatis.org/mybatis-3/zh/logging.html"/>
+    # 注意：
+    # 如果配置 org.apache.ibatis.logging.stdout.StdOutImpl，则在logback文件中配置打印SQL也不会打印到
+    # 配置的日志中。
+    # 除非将该配置注释掉，或者使用其他的日志打印
+    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
 
 #jwt配置
 dhb:
