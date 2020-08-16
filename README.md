@@ -53,6 +53,7 @@
 8. 从首页的位置点击登录按钮，即可进入系统
 ## 参与贡献
 一起参与开源，十分期待你的加入!!!
-[如何参与开源?](https://blog.csdn.net/dghkgjlh/article/details/106955241)
+[如何参与开源?](https://blog.csdn.net/dghkgjlh/article/details/106955241)  
+提交代码之前，请确保CheckStyle检查通过、确保所有单元测试通过
 ## 特别感谢
 [![JetBrains对本项目的支持](https://github.com/jacksparrow414/griantBaby/blob/master/logo-text.png)]( https://www.jetbrains.com/?from=https://github.com/jacksparrow414/griantBaby)
