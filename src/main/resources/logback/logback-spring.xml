@@ -3,7 +3,7 @@
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
     <property name="APP_Name" value="grant-baby"/>
-    <property name="LOG_PATH" value="/home/dhb/logs"/>
+    <property name="LOG_PATH" value="/Users/jacksparrow414/logs"/>
     <contextName>${APP_Name}</contextName>
 
     <!--输出到控制台-->

@@ -5,7 +5,7 @@ spring:
             driver-class-name: com.mysql.jdbc.Driver
             url: jdbc:mysql://localhost:3306/baby?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT%2B8
             username: root
-            password: Dhb102424414
+            password: 12345
             initial-size: 10
             max-active: 100
             min-idle: 10

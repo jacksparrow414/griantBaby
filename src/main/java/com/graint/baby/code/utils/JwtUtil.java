@@ -3,19 +3,18 @@ package com.graint.baby.code.utils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
-
-import java.util.Date;
 
 /**
  * JWT token 工具类,提供JWT生成,校验,工作
  *
  * @Author jacksparrow414
  * @Date 2019-05-25
- * @Description: TODO
+ * @desc: TODO
  */
 @ConfigurationProperties(prefix = "dhb.jwt")
 @Component
@@ -96,4 +95,5 @@ public class JwtUtil {
     public void setHeader(String header) {
         this.header = header;
     }
+    
 }
