@@ -5,7 +5,7 @@ orbs:
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
     
-    working_directory: ~/circleci-demo-java-spring 
+    working_directory: ~/repo
 
     docker: # run the steps with Docker
       - image: circleci/openjdk:8-jdk-stretch 
@@ -22,7 +22,7 @@ jobs: # a collection of steps
       - save_cache: # saves the project dependencies
           paths:
             - ~/.m2
-          key: circleci-demo-java-spring-{{ checksum "pom.xml" }}
+          key: repo-{{ checksum "pom.xml" }}
       
       - run: mvn package # run the actual t
       - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard. 
@@ -38,10 +38,9 @@ workflows:
   babyFolw:
     triggers:
       - schedule:
-        cron: "0 0 * * *"
            filters:
              branches:
                only:
                  - master
     jobs:
-    - build
+      - build
