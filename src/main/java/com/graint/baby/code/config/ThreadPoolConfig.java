@@ -1,10 +1,9 @@
 package com.graint.baby.code.config;
 
+import java.util.concurrent.ThreadPoolExecutor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-
-import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * @author jacksparrow414

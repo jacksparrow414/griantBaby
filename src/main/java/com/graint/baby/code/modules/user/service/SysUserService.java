@@ -1,7 +1,7 @@
 package com.graint.baby.code.modules.user.service;
 
-import com.graint.baby.code.modules.user.entity.SysUserEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.graint.baby.code.modules.user.entity.SysUserEntity;
 
 /**
  * <p>

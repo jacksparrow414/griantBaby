@@ -6,15 +6,14 @@ import com.graint.baby.code.modules.user.entity.SysUserEntity;
 import com.graint.baby.code.modules.user.service.SysUserService;
 import com.graint.baby.code.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpStatus;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Author jacksparrow414

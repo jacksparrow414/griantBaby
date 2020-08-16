@@ -1,10 +1,9 @@
 package com.graint.baby.code.task;
 
+import javax.annotation.Resource;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
-
-import javax.annotation.Resource;
 
 /**
  * @Author jacksparrow414

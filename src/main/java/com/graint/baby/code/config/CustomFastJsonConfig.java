@@ -4,12 +4,11 @@ import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import org.springframework.http.MediaType;
-
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
+import org.springframework.http.MediaType;
 
 /**
  * @author jacksparrow414

@@ -1,7 +1,7 @@
 package com.graint.baby.code.modules.user.dao;
 
-import com.graint.baby.code.modules.user.entity.SysUserEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.graint.baby.code.modules.user.entity.SysUserEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
