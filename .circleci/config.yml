@@ -1,44 +1,87 @@
+# CI 工作流程基本如下
+# 从配置的workflows中拿到workflow，查看执行当前workflow需要哪些条件，如果满足，
+# 则执行workflow下的jobs
+# 每个jobs基本由三大步组成：  1. 工作目录
+#                         2. 执行环境 docker\windows\macOS\Linux
+#                         3. 具体执行步骤 steps
 version: 2.1
 jobs: # a collection of steps
-  build: # runs not using Workflows must have a `build` job as entry point
-    
+  # 定义job的名字为【build】 runs not using Workflows must have a `build` job as entry point，
+  build:
+    # 配置工作目录
     working_directory: ~/repo
-
-    docker: # run the steps with Docker
-      - image: circleci/openjdk:8-jdk-stretch 
-    steps: # a collection of executable commands
-
-      - checkout # check out source code to working directory
+    # 执行环境为docker  run the steps with Docker
+    docker:
+      - image: circleci/openjdk:8-jdk-stretch
+      # a collection of executable commands ，当前jobs要执行的具体步骤
+    steps:
+      # check out source code to working directory 检出源码到工作目录
+      - checkout
 
       - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: circleci-demo-java-spring-{{ checksum "pom.xml" }}
-      
-      - run: mvn dependency:go-offline # gets the project dependencies
-      
+          key: v1-repo-{{ checksum "pom.xml" }}
+
+      - run:
+          name: get dependency
+          # 拉取依赖 gets the project dependencies
+          command: mvn dependency:go-offline
+
       - save_cache: # saves the project dependencies
           paths:
             - ~/.m2
-          key: repo-{{ checksum "pom.xml" }}
-      
-      - run: mvn package # run the actual t
-      - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard. 
-        # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-            path: target/surefire-reports
-        
+          key: v1-repo-{{ checksum "pom.xml" }}
+      - run:
+          name: build start
+          command: echo "build start"
+
+      - run:
+          name: build project
+          # 这里进行打包操作
+          command: mvn package
+      # 成功时的运行命令
+      - run:
+          name: bulid success
+          command: echo "build success"
+          when: on_success
+      # 失败时的运行命令
+      - run:
+          name: build fail
+          command: echo "build failur"
+          when: on_fail
+      # 存储测试结果
+      - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard.
+          # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+          path: target/surefire-reports
+
       - store_artifacts: # store the uberjar as an artifact
-        # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-            path: target/griantBaby-0.0.1-SNAPSHOT.jar
-        # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples 
+          # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
+          path: target/griantBaby-0.0.1-SNAPSHOT.jar
+        # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
 workflows:
   version: 2
-  babyFolw:
+  # 定义了三个工作流
+
+  # 本地提交时触发
+  #  commit-workflow:
+  #    jobs:
+  #      - build:
+  # 当被他人fork时，他人提交PR时进行,使用filter定义 要匹配的branch，only 参数接收一个正则表达式，
+  # 一般会和commit-workflow重复，所以这里只保留这个工作流程即可
+  fork-commit-workfolw:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: /^[A-Za-z0-9].*/
+  # 定时触发，由两个部分组成，triggers、要执行的jobs
+  scheduled-workfolw:
     triggers:
       - schedule:
-           cron: "0 0 * * *"
-           filters:
-             branches:
-               only:
-                 - master
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - build
