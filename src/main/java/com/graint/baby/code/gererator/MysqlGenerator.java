@@ -24,7 +24,7 @@ import java.util.Scanner;
  * <p>
  * mysql 代码生成器
  * </p>
- *
+ * 推荐一款专门为mybatis-plus打造的代码生成工具MybatisPlus
  * @author dhb
  * @since 2019-04-03
  */
