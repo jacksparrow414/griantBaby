@@ -4,19 +4,15 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.time.LocalDateTime;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
 /**
- * <p>
- * 角色
- * </p>
- *
- * @author dhb
- * @since 2019-09-13
+ * 角色.
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -30,25 +26,25 @@ public class SysRoleEntity implements Serializable {
     private Long roleId;
 
     /**
-     * 角色名称
+     * 角色名称.
      */
     @TableField("role_name")
     private String roleName;
 
     /**
-     * 备注
+     * 备注.
      */
     @TableField("remark")
     private String remark;
 
     /**
-     * 创建者ID
+     * 创建者ID.
      */
     @TableField("create_user_id")
     private Long createUserId;
 
     /**
-     * 创建时间
+     * 创建时间.
      */
     @TableField("create_time")
     private LocalDateTime createTime;

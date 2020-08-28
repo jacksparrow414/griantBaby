@@ -6,15 +6,15 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * <p>
- *  Mapper 接口
- * </p>
- *
- * @author dhb
- * @since 2019-09-07
+ *  Mapper 接口.
  */
 @Mapper
 public interface SysUserMapper extends BaseMapper<SysUserEntity> {
 
+    /**
+     * 添加用户.
+     *
+     * @param sysUserEntity 用户实体类
+     */
     void addUser(@Param("user") SysUserEntity sysUserEntity);
 }

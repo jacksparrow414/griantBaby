@@ -5,12 +5,7 @@ import com.graint.baby.code.modules.menu.entity.SysMenuEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- * <p>
- * 菜单管理 Mapper 接口
- * </p>
- *
- * @author dhb
- * @since 2019-09-22
+ * 菜单管理 Mapper 接口.
  */
 @Mapper
 public interface SysMenuMapper extends BaseMapper<SysMenuEntity> {
