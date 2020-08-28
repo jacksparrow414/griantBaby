@@ -7,22 +7,20 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.stereotype.Component;
 
 /**
- * @Author jacksparrow414
- * @Date 2019-09-07
- * @Description: TODO
- * 文本消息转换器
+ * 文本消息转换器.
  */
 @Component
 public class TextMessageConverter implements MessageConverter {
+    
     @Override
-    public Message toMessage(Object o, MessageProperties messageProperties) throws MessageConversionException {
+    public Message toMessage(final Object o, final MessageProperties messageProperties) throws MessageConversionException {
         return new Message(o.toString().getBytes(), messageProperties);
     }
-
+    
     @Override
-    public Object fromMessage(Message message) throws MessageConversionException {
+    public Object fromMessage(final Message message) throws MessageConversionException {
         String contentType = message.getMessageProperties().getContentType();
-        if(null != contentType && contentType.contains("text")) {
+        if (null != contentType && contentType.contains("text")) {
             return new String(message.getBody());
         }
         return message.getBody();

@@ -6,14 +6,18 @@ import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * @author duhongbo
- * @date 2020/3/30 17:20
+ * RedisTemplate配置类.
  */
 @Configuration
 public class RestTemplateConfig {
-
+    
+    /**
+     * 配置具体规则.
+     *
+     * @return org.springframework.web.client.RestTemplate
+     */
     @Bean
-    public RestTemplate restTemplate(){
+    public RestTemplate restTemplate() {
         SimpleClientHttpRequestFactory httpRequestFactory = new SimpleClientHttpRequestFactory();
         httpRequestFactory.setConnectTimeout(60);
         httpRequestFactory.setReadTimeout(120);

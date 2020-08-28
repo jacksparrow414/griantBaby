@@ -1,51 +1,25 @@
 package com.graint.baby.code.exception;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
- *
- * 自定义异常
- * @Author jacksparrow414
- * @Date 2019-05-25
- * @Description: TODO
+ * 自定义异常.
  */
+@Getter
+@Setter
+@AllArgsConstructor
 public class CustomException extends RuntimeException {
-    private int code = 500;
-    private String msg;
+    
+    private final String msg;
+    
+    private final int code;
 
-    public CustomException(String msg) {
-        super(msg);
-        this.msg = msg;
-    }
-
-    public CustomException(String msg, Throwable e) {
-        super(msg, e);
-        this.msg = msg;
-    }
-
-    public CustomException(String msg, int code) {
-        super(msg);
-        this.msg = msg;
-        this.code = code;
-    }
-
-    public CustomException(String msg, int code, Throwable e) {
+    public CustomException(final String msg, final int code, final Throwable e) {
         super(msg, e);
         this.msg = msg;
         this.code = code;
     }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
+    
 }

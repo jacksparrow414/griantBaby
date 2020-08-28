@@ -1,99 +1,74 @@
 package com.graint.baby.code.utils;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
-import java.util.Date;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import io.jsonwebtoken.SignatureException;
+import io.jsonwebtoken.UnsupportedJwtException;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 /**
- * JWT token 工具类,提供JWT生成,校验,工作
- *
- * @Author jacksparrow414
- * @Date 2019-05-25
- * @desc: TODO
+ * JWT token 工具类,提供JWT生成,校验,工作.
  */
 @ConfigurationProperties(prefix = "dhb.jwt")
 @Component
+@Slf4j
+@Getter
+@Setter
 public class JwtUtil {
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    
     private String secret;
+    
     private Long expire;
+    
     private String header;
-
-
+    
+    
     /**
+     * 生成JWT token.
      *
-     * 生成JWT token
-     * @param userId
-     * @return
+     * @param userId 用户id
+     * @return JWT信息字符串
      */
-    public String generateToken(Long userId) {
+    public String generateToken(final Long userId) {
         Date nowDate = new Date();
         Date expireDate = new Date(nowDate.getTime() + expire * 1000);
-        return Jwts.builder()
-                .setHeaderParam("typ", "JWT")
-                .setSubject(userId + "")
-                .setIssuedAt(nowDate)
-                .setExpiration(expireDate)
-                .signWith(SignatureAlgorithm.HS256, secret)
-                .compact();
-
+        return Jwts.builder().setHeaderParam("typ", "JWT").setSubject(userId + "").setIssuedAt(nowDate).setExpiration(expireDate).signWith(SignatureAlgorithm.HS256, secret).compact();
+        
     }
-
+    
     /**
+     * 解析JWT token.
      *
-     * 解析JWT token
-     * @param token
-     * @return
+     * @param token token
+     * @return io.jsonwebtoken.Claims
      */
-    public Claims parseToken(String token) {
+    public Claims parseToken(final String token) {
         try {
-
-            return Jwts.parser()
-                    .setSigningKey(secret)
-                    .parseClaimsJws(token)
-                    .getBody();
-        } catch (Exception e) {
-            logger.info("解析token出错");
+            
+            return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+        } catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException | SignatureException | IllegalArgumentException e) {
+            log.error("解析token出错", e);
             return null;
         }
     }
-
+    
     /**
+     * 校验token是否过期.
      *
-     * 校验token是否过期
-     * @param expiprationTime
-     * @return
+     * @param expiprationTime 过期时间
+     * @return 是否过期
      */
-    public boolean isTokenExpired(Date expiprationTime){
+    public boolean isTokenExpired(final Date expiprationTime) {
         return expiprationTime.before(new Date());
-    }
-    public String getSecret() {
-        return secret;
-    }
-
-    public void setSecret(String secret) {
-        this.secret = secret;
-    }
-
-    public Long getExpire() {
-        return expire;
-    }
-
-    public void setExpire(Long expire) {
-        this.expire = expire;
-    }
-
-    public String getHeader() {
-        return header;
-    }
-
-    public void setHeader(String header) {
-        this.header = header;
     }
     
 }

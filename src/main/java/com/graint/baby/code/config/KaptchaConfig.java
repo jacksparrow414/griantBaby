@@ -2,19 +2,23 @@ package com.graint.baby.code.config;
 
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.google.code.kaptcha.util.Config;
-import java.util.Properties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Properties;
+
 /**
- * @Author jacksparrow414
- * @Date 2019-04-22
- * @Description: TODO
+ * 验证码配置.
  */
 @Configuration
 public class KaptchaConfig {
+    
+    /**
+     * 配置验证码生成规则.
+     * @return com.google.code.kaptcha.impl.DefaultKaptcha
+     */
     @Bean
-    public DefaultKaptcha producer(){
+    public DefaultKaptcha producer() {
         Properties properties = new Properties();
         properties.put("kaptcha.border", "no");
         properties.put("kaptcha.textproducer.font.color", "black");

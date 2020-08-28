@@ -1,20 +1,17 @@
 package com.graint.baby.code.utils;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
 /**
- * @Author jacksparrow414
- * @Date 2019-09-14
- * @Description: TODO
+ * 自定义返回List.
  */
+@Getter
+@Setter
 public class CustomList<T> {
-    private  List<T> list;
-
-    public List<T> getList() {
-        return list;
-    }
-
-    public void setList(List<T> list) {
-        this.list = list;
-    }
+    
+    private List<T> list;
+    
 }
