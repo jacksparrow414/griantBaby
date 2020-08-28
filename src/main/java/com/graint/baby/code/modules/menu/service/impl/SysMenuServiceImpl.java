@@ -7,12 +7,7 @@ import com.graint.baby.code.modules.menu.service.SysMenuService;
 import org.springframework.stereotype.Service;
 
 /**
- * <p>
- * 菜单管理 服务实现类
- * </p>
- *
- * @author dhb
- * @since 2019-09-22
+ * 菜单管理 服务实现类.
  */
 @Service
 public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenuEntity> implements SysMenuService {
