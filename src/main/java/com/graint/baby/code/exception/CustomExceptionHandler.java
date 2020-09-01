@@ -3,15 +3,15 @@ package com.graint.baby.code.exception;
 import com.graint.baby.code.utils.CustomData;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.AuthorizationException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
 /**
  * 自定义异常处理器.
  */
-@ControllerAdvice
+@RestControllerAdvice
 @Slf4j
 public class CustomExceptionHandler {
     

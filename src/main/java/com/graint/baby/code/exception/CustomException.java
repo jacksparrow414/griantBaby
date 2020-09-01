@@ -15,11 +15,5 @@ public class CustomException extends RuntimeException {
     private final String msg;
     
     private final int code;
-
-    public CustomException(final String msg, final int code, final Throwable e) {
-        super(msg, e);
-        this.msg = msg;
-        this.code = code;
-    }
     
 }

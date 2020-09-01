@@ -6,10 +6,20 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.google.code.kaptcha.Producer;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.graint.baby.code.annotation.SysLog;
 import com.graint.baby.code.modules.user.dao.SysUserMapper;
 import com.graint.baby.code.modules.user.entity.SysUserEntity;
 import com.graint.baby.code.modules.user.service.SysUserService;
 import com.graint.baby.code.utils.JwtUtil;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.imageio.ImageIO;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -22,16 +32,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.imageio.ImageIO;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 前端控制器.
@@ -109,6 +109,7 @@ public class SysUserController {
      * @return 用户ID
      * @author duhongbo
      */
+    @SysLog(operationInfo = "添加用户")
     @PostMapping("insert")
     public Long insert(@RequestBody final String user) {
         SysUserEntity addUser = JSON.parseObject(user, SysUserEntity.class);
