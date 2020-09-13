@@ -1,6 +1,6 @@
 # griantBaby(手把手教巨婴开发完整的前后端分离项目)
 
-![](https://badgen.net/badge/License/MIT/blue) ![](https://badgen.net/badge/Maven/3.0+/green) ![](https://badgen.net/badge/JDK/1.8+/orange) ![](https://badgen.net/badge/SpringBoot/2.0+/pink) ![](https://badgen.net/badge/Mysql/5.7+/purple) ![](https://badgen.net/badge/Shiro/1.5/yellow) [![](https://badgen.net/badge/Mybatis-plus/3.0+/green)](https://mp.baomidou.com/) ![](https://badgen.net/badge/author/jacksparrow414,Canon4G/cyan?list=|)
+[![](https://badgen.net/badge/License/MIT/blue)](https://opensource.org/licenses/MIT) [![](https://badgen.net/badge/Maven/3.0+/green)](https://maven.apache.org/) [![](https://badgen.net/badge/JDK/1.8+/orange)](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) [![](https://badgen.net/badge/SpringBoot/2.0+/pink)](https://spring.io/projects/spring-boot) [![](https://badgen.net/badge/Mysql/5.7+/purple)](https://www.mysql.com/) [![](https://badgen.net/badge/Shiro/1.5/yellow)](http://shiro.apache.org/) [![](https://badgen.net/badge/Mybatis-plus/3.0+/green)](https://mp.baomidou.com/) [![](https://badgen.net/badge/author/jacksparrow414,Canon4G/cyan?list=|)](https://github.com/jacksparrow414)
 
 ## 简介:
 此项目由Java8、SpringBoot、Mybatis、Mybatis-plus、Mysql、Lambok、Shiro搭建而成的后端框架
