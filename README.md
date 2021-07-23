@@ -46,7 +46,7 @@
 1. 本地安装好nginx，将项目的nginx文件夹下的nginx.conf替换默认的nginx.conf
 2. 将项目vue下的dist文件夹放在自定义的位置上，如D盘
 3. 修改第1步中的nginx.conf下的 /baby下的root，路径替换为第2步中保存的位置
-4. 验证nginx.conf的正确性并启动，访问本地80端口,查看是否显示出项目的首页
+4. 验证nginx.conf的正确性并启动(nginx -t -c nginxConfigFilePath/nginx.conf)，访问本地80端口,查看是否显示出项目的首页.关于Nginx的命令可参考[官网](https://www.nginx.com/resources/wiki/start/topics/tutorials/commandline/)
 5. 本地建立名字为baby的MySQL数据库，并运行sql文件夹下的sql文件
 6. 修改appincation-dev.yml中的数据库项中的用户名、密码切换成自己的
 7. 启动后端项目
