@@ -34,7 +34,7 @@
         <kaptcha.version>0.0.9</kaptcha.version>
         <dynamic-datasource.version>2.5.7</dynamic-datasource.version>
         <guava.version>29.0-jre</guava.version>
-        <hutool.version>5.2.3</hutool.version>
+        <hutool.version>5.7.3</hutool.version>
         <maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
     </properties>
 
