@@ -30,7 +30,7 @@
         <commons.configuration.version>1.10</commons.configuration.version>
         <easyexcel.version>1.1.0</easyexcel.version>
         <jwt.version>0.9.1</jwt.version>
-        <httpcore.version>4.4.11</httpcore.version>
+        <httpcore.version>4.4.14</httpcore.version>
         <kaptcha.version>0.0.9</kaptcha.version>
         <dynamic-datasource.version>2.5.7</dynamic-datasource.version>
         <guava.version>30.0-jre</guava.version>
