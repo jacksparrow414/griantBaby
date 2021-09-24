@@ -19,7 +19,7 @@
         <druid.spring.boot.starter.version>1.1.13</druid.spring.boot.starter.version>
         <mybatis.plus.boot.starter.version>3.4.3.1</mybatis.plus.boot.starter.version>
         <mybatis.plus.generator.version>3.4.1</mybatis.plus.generator.version>
-        <freemarker.version>2.3.30</freemarker.version>
+        <freemarker.version>2.3.31</freemarker.version>
         <fastjson.version>1.2.76</fastjson.version>
         <mysql.version>8.0.18</mysql.version>
         <shiro.version>1.8.0</shiro.version>
